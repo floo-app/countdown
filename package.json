@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
     "gl-react": "^5.0.0",
     "gl-react-dom": "^5.0.0",
     "next": "^10.0.0",
