@@ -3,18 +3,17 @@ import * as cheerio from 'cheerio'
 
 export default async function handler(req, res) {
 
-    const {data} = await axios.get('https://t.me/cellcard', { 
+    if (!req.query.name) {
+        res.json({message: 'nope'});
+        return;
+    }
+
+    const {data} = await axios.get('https://t.me/' + req.query.name, { 
         responseType: 'text',
     });
 
     const $ = cheerio.load(data);
     const bio = $('.tgme_page_description').text();
-
     
-
-    res.statusCode = 200
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({
-        bio
-    }));   
+    res.json({ bio });
 }
