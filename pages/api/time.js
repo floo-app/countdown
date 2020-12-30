@@ -1,6 +1,7 @@
+import os from 'os'
 
 export default function handler(req, res) {
     res.statusCode = 200
     res.setHeader('Content-Type', 'application/json')
-    res.end(JSON.stringify({ ...process.env }));   
+    res.end(JSON.stringify({ name: os.hostname() }));   
 }
